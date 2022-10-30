@@ -1,11 +1,7 @@
 const loadDatafromStorage = () => {
   const serializedData = localStorage.getItem(STORAGE_KEY);
   const data = JSON.parse(serializedData);
-
   if (data !== null) bookStorage = data;
-
-  console.log(bookStorage);
-
   document.dispatchEvent(new Event("ondataloaded"));
 };
 
@@ -20,10 +16,6 @@ const refreshDataFromBooks = () => {
       book.bookYear,
       book.isCompleted
     );
-
-    console.log(newBook);
-    console.log(book.isCompleted);
-
     newBook[BOOK_ITEMID] = book.id;
 
     if (book.isCompleted) {
